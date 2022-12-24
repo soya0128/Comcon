@@ -1,24 +1,100 @@
-# README
+# usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| email           | string | null: false |
+| password        | string | null: false |
+| nickname        | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
+| first_name_kana | string | null: false |
+| last_name_kana  | string | null: false |
 
-Things you may want to cover:
+# Association
 
-* Ruby version
+- has_one  :member
+- has_many :payments
+- has_many :mails
+- has_many :storages
+- has_many :chat_rooms, through: :room_users
+- has_many :chat_messages
 
-* System dependencies
+# membersテーブル
 
-* Configuration
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| address | text       | null: false                    |
+| part_id | integer    | null: false                    |
+| user    | references | null: false, foreign_key: true |
 
-* Database creation
+# Association
 
-* Database initialization
+- belongs_to :user
 
-* How to run the test suite
+# paymentsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| price  | integer    | null: false                    |
+| user   | references | null: false, foreign_key: true |
 
-* Deployment instructions
+# Association
 
-* ...
+- belongs_to :user
+
+# mailsテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| title   | string     | null: false                    |
+| content | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+# Association
+
+- belongs_to :user
+
+# storagesテーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+
+# Association
+
+- belongs_to :user
+
+# chat_roomsテーブル
+
+| Column    | Type   | Options     |
+| --------- | ------ | ----------- |
+| room_name | string | null: false | 
+
+# Association
+
+- has_many :users, through: :room_users
+
+# room_usersテーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| room   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+# Association
+
+- belongs_to :user
+- belongs_to :chat_room
+
+# chat_messagesテーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| message_content | text       | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| room            | references | null: false, foreign_key: true |
+
+# Association
+
+- belongs_to :user
+- belongs_to :chat_room
