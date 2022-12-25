@@ -2,7 +2,7 @@
   <%= link_to 'Comcon', root_path, class:"application_name" %>
   <div class="right_buttons">
     <% if user_signed_in? %>
-      <%= link_to current_user.nickname, '#', class:"user_nickname" %>
+      <%= link_to current_user.nickname, user_path(current_user.id), class:"user_nickname" %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"logout_btn" %>
     <% else %>
       <%= link_to 'ログイン', new_user_session_path, class:"login_btn" %>

@@ -1,0 +1,17 @@
+<%= render "shared/header" %>
+
+
+<% if current_user.member != nil %>
+  <%= @user.nickname %>さんの団員情報<br>
+  郵便番号：<%= @member.postal_code %><br>
+  住所：<%= @member.prefecture.name %><%= @member.address %> <%= @member.building_name %><br>
+  電話番号：<%= @member.phone_number %><br>
+  パート：<%= @member.part.name%><br>
+  <%= link_to '団員情報を編集', edit_member_path(@user.id), class:"member_info_btn" %><br>
+
+<% else %>
+  <%= @user.nickname %>さんの団員情報はまだ登録されていません<br>
+  <%= link_to '団員情報を登録', new_member_path, class:"member_info_btn" %>
+<% end %>
+
+<%= link_to 'マイページへ戻る', user_path(@user.id) %>
