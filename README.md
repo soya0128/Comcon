@@ -21,11 +21,15 @@
 
 # membersテーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| address | text       | null: false                    |
-| part_id | integer    | null: false                    |
-| user    | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| address       | string     | null: false                    |
+| building_name | string     |                                |
+| phone_number  | string     | null: false                    |
+| part_id       | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
 # Association
 
