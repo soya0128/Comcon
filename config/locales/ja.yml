@@ -7,3 +7,9 @@ ja:
         last_name: 名前
         first_name_kana: 苗字(カナ)
         last_name_kana: 名前(カナ)
+      member:
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        address: 住所
+        phone_number: 電話番号
+        part_id: パート
