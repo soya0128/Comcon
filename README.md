@@ -50,7 +50,7 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| title   | string     | null: false                    |
+| subject | string     | null: false                    |
 | content | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
 

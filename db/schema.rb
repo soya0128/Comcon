@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_12_29_092930) do
 
   create_table "emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "subject", null: false
     t.text "content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2022_12_29_092930) do
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "nickname", null: false
-    t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "first_name_kana", null: false
+    t.string "first_name", null: false
     t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
