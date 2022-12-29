@@ -1,45 +1,48 @@
 <%= render "shared/header" %>
 
-<div class="page_title">
-  ユーザー情報更新
+<div class="main">
+  <div class="page_title">
+    ユーザー情報更新
+  </div>
+  <%= form_with(model: @user, local: true)  do |f| %>
+    <%= render "shared/error_messages", model: f.object %>
+
+    <div class="field">
+      <%= f.label :'ニックネーム' %><br />
+      <%= f.text_field :nickname, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'Eメールアドレス' %><br />
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'苗字(全角)' %><br />
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'名前(全角)' %><br />
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'苗字(全角カナ)' %><br />
+      <%= f.text_field :first_name_kana %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'名前(全角カナ)' %><br />
+      <%= f.text_field :last_name_kana %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'マイページへ戻る', user_path(@user.id), class:"back_to_mypage_btn" %>
 </div>
 
-<%= form_with(model: @user, local: true)  do |f| %>
-  <%= render "shared/error_messages", model: f.object %>
-
-  <div class="field">
-    <%= f.label :'ニックネーム' %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'Eメールアドレス' %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'苗字(全角)' %><br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'名前(全角)' %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'苗字(全角カナ)' %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'名前(全角カナ)' %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<%= link_to 'マイページへ戻る', user_path(@user.id), class:"back_to_mypage_btn" %>
+<%= render "shared/footer" %>

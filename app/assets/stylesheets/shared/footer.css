@@ -1,0 +1,11 @@
+.footer_wrapper {
+  width: 100vw;
+  height: 60px;
+  background-color: rgb(217, 214, 206);
+  color: rgb(124, 127, 135);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}

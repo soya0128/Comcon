@@ -1,43 +1,50 @@
 <%= render "shared/header" %>
 
-<div class="page_title">
-  団員情報編集
+<div class="main">
+
+  <div class="page_title">
+    団員情報編集
+  </div>
+
+  <%= form_with(model: @member, local: true) do |f| %>
+    <%= render "shared/error_messages", model: f.object %>
+
+    <div class="field">
+      <%= f.label :'郵便番号' %><br />
+      <%= f.text_field :postal_code, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'都道府県' %><br />
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select_box"}) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'住所' %><br />
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'建物名・部屋番号' %><br />
+      <%= f.text_field :building_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'電話番号' %><br />
+      <%= f.text_field :phone_number %>
+    </div>
+
+    <div class="field">
+      <%= f.label :'パート' %><br />
+      <%= f.collection_select(:part_id, Part.all, :id, :name, {}, {class:"select_box"}) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新" %>
+    </div>
+  <% end %>
+  <%= link_to 'マイページへ戻る', user_path(@member.id), class:"back_to_mypage_btn" %>
+
 </div>
 
-<%= form_with(model: @member, local: true) do |f| %>
-  <%= render "shared/error_messages", model: f.object %>
-
-  <div class="field">
-    <%= f.label :'郵便番号' %><br />
-    <%= f.text_field :postal_code, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'都道府県' %><br />
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select_box"}) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'住所' %>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'建物名・部屋番号' %><br />
-    <%= f.text_field :building_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'電話番号' %><br />
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :'パート' %><br />
-    <%= f.collection_select(:part_id, Part.all, :id, :name, {}, {class:"select_box"}) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
+<%= render "shared/footer" %>

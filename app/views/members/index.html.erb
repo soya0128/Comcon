@@ -1,17 +1,31 @@
 <%= render "shared/header" %>
 
+<div class="main">
+  <% if current_user.member != nil %>
+    <div class="page_title">
+      <%= @user.nickname %>さんの団員情報
+    </div>
+    <div class="member_info">
+      郵便番号：<%= @member.postal_code %>
+    </div>
+    <div class="member_info">
+      住所：<%= @member.prefecture.name %><%= @member.address %>
+      <br   ><%= @member.building_name %>
+    </div>
+    <div class="member_info">
+      電話番号：<%= @member.phone_number %>
+    </div>
+    <div class="member_info">
+      パート：<%= @member.part.name%>
+    </div>
+    <%= link_to '団員情報を編集', edit_member_path(@member.id), class:"link_btn" %>
 
-<% if current_user.member != nil %>
-  <%= @user.nickname %>さんの団員情報<br>
-  郵便番号：<%= @member.postal_code %><br>
-  住所：<%= @member.prefecture.name %><%= @member.address %> <%= @member.building_name %><br>
-  電話番号：<%= @member.phone_number %><br>
-  パート：<%= @member.part.name%><br>
-  <%= link_to '団員情報を編集', edit_member_path(@member.id), class:"member_info_btn" %><br>
+  <% else %>
+    <%= @user.nickname %>さんの団員情報はまだ登録されていません<br>
+    <%= link_to '団員情報を登録', new_member_path, class:"link_btn" %>
+  <% end %>
 
-<% else %>
-  <%= @user.nickname %>さんの団員情報はまだ登録されていません<br>
-  <%= link_to '団員情報を登録', new_member_path, class:"member_info_btn" %>
-<% end %>
+  <%= link_to 'マイページへ戻る', user_path(@user.id), class:"back_to_mypage_btn" %>
+</div>
 
-<%= link_to 'マイページへ戻る', user_path(@user.id) %>
+<%= render "shared/footer" %>
