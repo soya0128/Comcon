@@ -1,0 +1,44 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class="page_title">
+    メール作成
+  </div>
+  <%= form_with(model: @email, local: true) do |f| %>
+    <div class="correct-msg-box">
+      <% if @email.errors.any? %>
+        <div id="error_explanation">
+          <ul><% @email.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="correct-msg-main">
+      <div class="article-form">
+        <div class="correct-text-field">
+          <%= f.label "タイトル" %>
+          <%= f.text_field :title, placeholder: "タイトル", class: "input-form" %>
+        </div>
+        <div class="correct-text-field">
+          <%= f.label "本文" %>
+          <%= f.text_area :content, placeholder: "本文を入力してください", class: "input-form" %>
+        </div>
+        <div class="send-btn-contents">
+          <div class="register-btn">
+            <%= f.button type: "submit", class:"register-red-btn", style:'border-style: none;' do %> 
+              送信 <i class="fas fa-paper-plane"></i>
+            <% end %>
+          </div>
+          <div class="register-btn">
+            <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

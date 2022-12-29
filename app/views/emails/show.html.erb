@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <%= @email.title %>
+  <%= @email.created_at %>
+  <%= email.user.last_name %><%= email.user.first_name %>
+  <%= @email.content %>
+
+  <div class="register-btn">
+    <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

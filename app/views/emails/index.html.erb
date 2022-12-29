@@ -1,0 +1,13 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <%= link_to 'メール作成', new_email_path, class:"new_mail_btn" %>
+
+  <% @emails.each do |email| %>
+    <%= link_to email.title, email_path(email.id) %>
+    <%= email.user.last_name %><%= email.user.first_name %>
+    <%= email.created_at %>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
