@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :users, only: [:show, :edit, :update]
   resources :members, only:[:index, :new, :create, :edit, :update]
-  resources :emails, only:[:index, :new, :create]
+  resources :emails, only:[:index, :new, :create, :show]
 end
