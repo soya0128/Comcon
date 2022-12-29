@@ -4,9 +4,11 @@
 
 .header_wrapper{
   width: 100vw;
+  height: 80px;
   padding: 2vh 5vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: orange;
 }
 
