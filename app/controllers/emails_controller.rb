@@ -10,7 +10,8 @@ class EmailsController < ApplicationController
   def create
     @email = Email.new(email_params)
     if @email.save
-      redirect_to action:'index'
+      EmailMailer.mail_send(@email, current_user).deliver
+      redirect_to action:'index', notice: 'メールを送信しました'
     else
       render :new
     end
