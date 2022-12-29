@@ -2,55 +2,56 @@
   ユーザー新規登録
 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="main">
 
-  <div class="field">
-    <%= f.label :'ニックネーム' %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :'Eメールアドレス' %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :'ニックネーム' %><br />
+      <%= f.text_field :nickname, autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'パスワード' %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :'Eメールアドレス' %><br />
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'パスワード(確認用)' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :'パスワード' %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'苗字(全角)' %><br />
-    <%= f.text_field :first_name %>
-  </div>
+    <div class="field">
+      <%= f.label :'パスワード(確認用)' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'名前(全角)' %><br />
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="field">
+      <%= f.label :'苗字(全角)' %><br />
+      <%= f.text_field :first_name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'苗字(全角カナ)' %><br />
-    <%= f.text_field :first_name_kana %>
-  </div>
+    <div class="field">
+      <%= f.label :'名前(全角)' %><br />
+      <%= f.text_field :last_name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :'名前(全角カナ)' %><br />
-    <%= f.text_field :last_name_kana %>
-  </div>
+    <div class="field">
+      <%= f.label :'苗字(全角カナ)' %><br />
+      <%= f.text_field :first_name_kana %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :'名前(全角カナ)' %><br />
+      <%= f.text_field :last_name_kana %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit "新規登録" %>
+    </div>
+  <% end %>
+</div>
