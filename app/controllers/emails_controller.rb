@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
   def index
-    @emails = Email.include(:user)
+    @emails = Email.includes(:user)
   end
 
   def new
@@ -14,6 +14,10 @@ class EmailsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @email = Email.find(params[:id])
   end
 
   private
