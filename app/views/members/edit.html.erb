@@ -6,7 +6,7 @@
     団員情報編集
   </div>
 
-  <%= form_with(model: @member, local: true) do |f| %>
+  <%= form_with(model: @member, class:"form", local: true) do |f| %>
     <%= render "shared/error_messages", model: f.object %>
 
     <div class="field">

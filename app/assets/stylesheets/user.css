@@ -1,5 +1,5 @@
 .main {
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -9,13 +9,9 @@
   text-align: center;
 }
 
-.member_info_wrapper {
-  
-}
-
 .member_info {
   margin: 10px auto;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 .function_link {
