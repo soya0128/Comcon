@@ -5,39 +5,25 @@
     メール作成
   </div>
   <%= form_with(model: @email, local: true) do |f| %>
-    <div class="correct-msg-box">
-      <% if @email.errors.any? %>
-        <div id="error_explanation">
-          <ul><% @email.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="correct-msg-main">
-      <div class="article-form">
-        <div class="correct-text-field">
-          <%= f.label "件名" %>
-          <%= f.text_field :subject, placeholder: "タイトル", class: "input-form" %>
-        </div>
-        <div class="correct-text-field">
-          <%= f.label "本文" %>
-          <%= f.text_area :content, placeholder: "本文を入力してください", class: "input-form" %>
-        </div>
-        <div class="send-btn-contents">
-          <div class="register-btn">
-            <%= f.button type: "submit", class:"register-red-btn", style:'border-style: none;' do %> 
-              送信 <i class="fas fa-paper-plane"></i>
-            <% end %>
-          </div>
-          <div class="register-btn">
-            <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
-          </div>
-        </div>
+    <% if @email.errors.any? %>
+      <div id="error_explanation">
+        <ul><% @email.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label "件名" %>
+      <%= f.text_field :subject, placeholder: "件名", class: "input-form" %>
     </div>
+    <div class="field">
+      <%= f.label "本文" %><br>
+      <%= f.text_area :content, placeholder: "本文を入力してください", class: "input-form" %>
+    </div>
+    <%= f.submit "送信" %>          
+    <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
   <% end %>
 </div>
 

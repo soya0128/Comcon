@@ -1,14 +1,18 @@
 <%= render "shared/header" %>
 
 <div class="main">
-  <%= @email.title %>
-  <%= @email.created_at %>
-  <%= email.user.last_name %><%= email.user.first_name %>
-  <%= @email.content %>
-
-  <div class="register-btn">
-    <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
+  <div class="page_title">
+    <%= @email.subject %>
   </div>
+  <div class="mail_elements">
+    送信日時：<%= l @email.created_at %><br>
+    送信者：<%= @email.user.last_name %><%= @email.user.first_name %><br>
+    本文：<br>
+    <%= @email.content %>
+  </div>
+
+  <br>
+  <%= link_to "メールトップへもどる", emails_path, class:"back_to_index_btn" %>
 </div>
 
 <%= render "shared/footer" %>

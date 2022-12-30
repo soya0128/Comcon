@@ -16,8 +16,6 @@ form input[type="password"],
   border-radius: 7px;
 }
 
-
-
 form input[type="submit"] {
   display: flex;
   justify-content: center;

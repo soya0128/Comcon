@@ -3,10 +3,11 @@
 <div class="main">
   <%= link_to 'メール作成', new_email_path, class:"new_mail_btn" %>
 
+  <div class="page_title">
+    メール一覧
+  </div>
   <% @emails.each do |email| %>
-    <%= link_to email.subject, email_path(email.id) %>
-    <%= email.user.last_name %><%= email.user.first_name %>
-    <%= email.created_at %>
+    <%= render partial: 'email', collection: @emails %>
   <% end %>
 </div>
 

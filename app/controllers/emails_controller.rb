@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
   def index
-    @emails = Email.includes(:user)
+    @emails = Email.includes(:user).order("created_at DESC")
   end
 
   def new
