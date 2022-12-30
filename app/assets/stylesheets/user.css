@@ -14,14 +14,16 @@
   padding-left: 40px;
 }
 
-.function_link {
+.function_link,
+.link_btn,
+.regist_btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 60px;
   text-decoration: none;
-  background-color: rgb(50, 119, 20);
+  background-color: #4c2709;
   padding: 5px 10px;
   color: white;
   border: 1px solid;
@@ -29,14 +31,14 @@
   margin: 20px auto;
 }
 
-.link_btn {
+.regist_btn {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 200px;
   height: 60px;
   text-decoration: none;
-  background-color: rgb(50, 119, 20);
+  background-color: #4c2709;
   padding: 5px 10px;
   color: white;
   border: 1px solid;
