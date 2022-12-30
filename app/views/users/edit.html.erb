@@ -37,9 +37,8 @@
       <%= f.text_field :first_name_kana %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "更新" %>
-    </div>
+    <%= f.submit "更新" %>
+    
   <% end %>
 
   <%= link_to 'マイページへ戻る', user_path(@user.id), class:"back_to_mypage_btn" %>
