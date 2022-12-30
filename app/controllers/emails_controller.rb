@@ -4,13 +4,15 @@ class EmailsController < ApplicationController
   end
 
   def new
+    @user = User.find(current_user.id)
     @email = Email.new
   end
 
   def create
+    @user = User.find(current_user.id)
     @email = Email.new(email_params)
     if @email.save
-      EmailMailer.mail_send(@email, current_user).deliver
+      EmailMailer.mail_send(@user, @email).deliver
       redirect_to action:'index', notice: 'メールを送信しました'
     else
       render :new
@@ -22,8 +24,7 @@ class EmailsController < ApplicationController
   end
 
   private
-
   def email_params
-    params.require(:email).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:email).permit(:subject, :content).merge(user_id: current_user.id)
   end
 end

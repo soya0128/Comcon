@@ -1,9 +1,10 @@
 class EmailMailer < ApplicationMailer
+  default bcc: -> { User.pluck(:email) }
 
-  def mail_send(email, user)
-    @user = User.find(current_user.id)
+  def mail_send(user, email)
+    @user = user
     @email = email
-    mail(to: User.pluck[:email], subject: @email.title)
+    mail(subject: @email[:subject])
   end
 
 end
