@@ -46,7 +46,9 @@
   margin: 20px auto;
 }
 
-.back_to_toppage_btn{
+.back_to_toppage_btn,
+.back_to_mypage_btn,
+.back_to_index_btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,19 +61,4 @@
   border-radius: 10px;
   margin: 20px auto;
   color: black;  
-}
-
-.back_to_mypage_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 60px;
-  text-decoration: none;
-  border-radius: 10px;
-  color: black;
-  border: 1px solid;
-  padding: 10px 20px;
-  margin: 20px auto;
-
 }

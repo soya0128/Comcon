@@ -1,0 +1,8 @@
+
+  件名：<%= link_to email.subject, email_path(email.id), class:"mail_subject" %>
+  <div class="mail_sender">
+    送信者：<%= email.user.last_name %><%= email.user.first_name %>
+  </div>
+  <div class="mail_created_at">
+    送信日時：<%= l email.created_at %>
+  </div>

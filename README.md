@@ -14,7 +14,7 @@
 
 - has_one  :member
 - has_many :payments
-- has_many :mails
+- has_many :emails
 - has_many :storages
 - has_many :chat_rooms, through: :room_users
 - has_many :chat_messages
@@ -46,11 +46,11 @@
 
 - belongs_to :user
 
-# mailsテーブル
+# emailsテーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| title   | string     | null: false                    |
+| subject | string     | null: false                    |
 | content | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
 

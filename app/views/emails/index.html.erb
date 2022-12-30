@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <%= link_to 'メール作成', new_email_path, class:"new_mail_btn" %>
+
+  <div class="page_title">
+    メール一覧
+  </div>
+  <% @emails.each do |email| %>
+    <%= render partial: 'email', collection: @emails %>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

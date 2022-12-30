@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
   activerecord:
     attributes:
       user:
@@ -13,3 +16,6 @@ ja:
         address: 住所
         phone_number: 電話番号
         part_id: パート
+      email:
+        subject: 件名
+        content: 本文
