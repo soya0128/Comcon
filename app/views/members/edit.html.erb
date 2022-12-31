@@ -6,8 +6,7 @@
     団員情報編集
   </div>
 
-  <%= form_with(model: @member, class:"form", local: true) do |f| %>
-    <%= render "shared/error_messages", model: f.object %>
+  <%= form_with(model: @member, method: :patch, local: true) do |f| %>
 
     <div class="field">
       <%= f.label :'郵便番号' %><br />
@@ -43,7 +42,7 @@
       <%= f.submit "更新" %>
     </div>
   <% end %>
-  <%= link_to 'マイページへ戻る', user_path(@member.id), class:"back_to_mypage_btn" %>
+  <%= link_to 'マイページへ戻る', user_path(@user), class:"back_to_mypage_btn" %>
 
 </div>
 

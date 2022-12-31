@@ -18,14 +18,14 @@
     <div class="member_info">
       パート：<%= @member.part.name%>
     </div>
-    <%= link_to '団員情報を編集', edit_member_path(@member.id), class:"link_btn" %>
+    <%= link_to '団員情報を編集', edit_member_path(@member), class:"link_btn" %>
 
   <% else %>
     <%= @user.nickname %>さんの団員情報はまだ登録されていません<br>
     <%= link_to '団員情報を登録', new_member_path, class:"link_btn" %>
   <% end %>
 
-  <%= link_to 'マイページへ戻る', user_path(@user.id), class:"back_to_mypage_btn" %>
+  <%= link_to 'マイページへ戻る', user_path(@user), class:"back_to_mypage_btn" %>
 </div>
 
 <%= render "shared/footer" %>
