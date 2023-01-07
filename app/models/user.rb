@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   has_one :member, dependent: :destroy
   has_many :emails
+  has_many :storages
 end
