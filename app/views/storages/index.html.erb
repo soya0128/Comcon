@@ -1,0 +1,24 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <%# <%= link_to 'メール作成', new_storage_path, class:"new_mail_btn" %>
+
+  <div class="page_title">
+    データファイル一覧
+  </div>
+  <% @storages.each do |storage| %>
+    <%# <%= render partial: 'storage', collection: @storages %>
+
+  件名：<%= link_to storage.subject, storage_path(storage.id), class:"mail_subject" %>
+  <div class="mail_sender">
+    送信者：<%= storage.user.last_name %><%= storage.user.first_name %>
+  </div>
+  <div class="mail_created_at">
+    送信日時：<%= l storage.created_at %>
+  </div>
+
+
+  <% end %> %> %> %>
+</div>
+
+<%= render "shared/footer" %>
