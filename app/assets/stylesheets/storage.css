@@ -1,0 +1,47 @@
+.storage_main {
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.storage_wrapper {
+  display: flex;
+  margin-top: 60px;
+}
+
+.storage_each {
+  margin-right: 60px;
+}
+
+.storage_name,
+.storage_user,
+.storage_created_at {
+  margin-bottom: 10px;
+}
+
+.delete_btn {
+  text-decoration: none;
+  background-color: #F4EEC7;
+  border: 1px solid #697C37;
+  border-radius: 5px;
+  color: black;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+.storage_label {
+  margin-bottom: 10px;
+}
+
+.input-form {
+  margin-bottom: 20px;
+}
+
+.preview-image {
+  width: 150px;
+  height: 150px;
+}
+
+.file_upload_btn {
+  margin-bottom: 20px;
+}
