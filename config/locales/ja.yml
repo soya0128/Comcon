@@ -19,3 +19,6 @@ ja:
       email:
         subject: 件名
         content: 本文
+      storage:
+        name: ファイル名
+        image: ファイル
