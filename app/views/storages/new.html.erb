@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="storage_main">
+<div class="main">
   <div class="page_title">
     ファイルアップロード
   </div>
@@ -14,10 +14,14 @@
         </ul>
       </div>
     <% end %>
-    <%= f.label :"ファイル名" %>
-    <%= f.text_field :name, class:"input-form" %>
+    <div class="storage_label">
+      <%= f.label :"ファイル名" %>
+    </div>
+    <%= f.text_field :name, class:"input-form", placeholder:"ファイル名を入力してください" %>
     <div id="previews"></div>
-    <%= f.label :"ファイルアップロード" %>
+    <div class="storage_label">
+      <%= f.label :"ファイルアップロード" %>
+    </div>
     <%= f.file_field :image, class: "file_upload_btn" %>
 
     <%= f.submit "アップロード", class: "submit" %>

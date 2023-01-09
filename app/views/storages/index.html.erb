@@ -1,22 +1,27 @@
 <%= render "shared/header" %>
 
-<div class="main">
-  <%= link_to 'ファイルアップロード', new_storage_path, class:"link_btn" %>
+<div class="storage_main">
   <div class="page_title">
     データファイル一覧
   </div>
-  <% @storages.each do | storage | %>
-    <%# <%= render partial: 'storage', collection: @storages %>
-    名称：<%= storage.name %><br>
-    <%= image_tag storage.image.variant(resize: '100x100'), class:"storage_image" %>
-    <div class="storage_user">
-      投稿者：<%= storage.user.last_name %><%= storage.user.first_name %>
-    </div>
-    <div class="storage_created_at">
-      投稿日時：<%= l storage.created_at %>
-    </div>
-    <%= link_to '削除', storage_path(storage.id), method: :delete %><br>
-  <% end %>
+  <%= link_to 'ファイルアップロード', new_storage_path, class:"link_btn" %>
+  <div class="storage_wrapper">
+    <% @storages.each do | storage | %>
+      <div class="storage_each">
+        <div class="storage_name">
+          ファイル名：<%= storage.name %><br>
+        </div>
+        <%= image_tag storage.image.variant(resize: '150x150') %>
+        <div class="storage_user">
+          投稿者：<%= storage.user.last_name %><%= storage.user.first_name %>
+        </div>
+        <div class="storage_created_at">
+          投稿日時：<%= l storage.created_at %>
+        </div>
+        <%= link_to '削除', storage_path(storage.id), method: :delete, class:"delete_btn" %><br>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>
