@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+
+<div class="main">
+  <div class="page_title">
+    ファイルアップロード
+  </div>
+
+  <%= form_with model: @storage, id:"storage_form", local: true do |f| %>
+    <% if @storage.errors.any? %>
+      <div id="error_explanation">
+        <ul><% @storage.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="storage_label">
+      <%= f.label :"ファイル名" %>
+    </div>
+    <%= f.text_field :name, class:"input-form", placeholder:"ファイル名を入力してください" %>
+    <div id="previews"></div>
+    <div class="storage_label">
+      <%= f.label :"ファイルアップロード" %>
+    </div>
+    <%= f.file_field :image, class: "file_upload_btn" %>
+
+    <%= f.submit "アップロード", class: "submit" %>
+  <% end %>
+
+  <%= link_to 'ファイル一覧へ戻る', storages_path, class:"back_to_index_btn" %>
+</div>
+
+<%= render "shared/footer" %>

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :members, only:[:index, :new, :create, :edit, :update]
   resources :emails, only:[:index, :new, :create, :show]
+  resources :storages, only: [:index, :new, :create, :destroy]
 end
