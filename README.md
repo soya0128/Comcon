@@ -62,6 +62,7 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
+| name   | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
 # Association
