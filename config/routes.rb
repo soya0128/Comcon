@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :members, only:[:index, :new, :create, :edit, :update]
   resources :emails, only:[:index, :new, :create, :show]
   resources :storages, only: [:index, :new, :create, :destroy]
-  resources :rooms, only: [:new, :create, :destroy]
+  resources :rooms, only: [:index, :new, :create, :destroy] do
+    resources :messages, only: [:index, :create]
+  end
 end
