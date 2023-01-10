@@ -16,8 +16,8 @@
 - has_many :payments
 - has_many :emails
 - has_many :storages
-- has_many :chat_rooms, through: :room_users
-- has_many :chat_messages
+- has_many :rooms, through: :room_users
+- has_many :messages
 
 # membersテーブル
 
