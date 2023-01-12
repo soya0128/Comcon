@@ -16,8 +16,8 @@
 - has_many :payments
 - has_many :emails
 - has_many :storages
-- has_many :chat_rooms, through: :room_users
-- has_many :chat_messages
+- has_many :rooms, through: :room_users
+- has_many :messages
 
 # membersテーブル
 
@@ -69,7 +69,7 @@
 
 - belongs_to :user
 
-# chat_roomsテーブル
+# roomsテーブル
 
 | Column    | Type   | Options     |
 | --------- | ------ | ----------- |
@@ -77,7 +77,9 @@
 
 # Association
 
+- has_many :room_users
 - has_many :users, through: :room_users
+- has_many :messages
 
 # room_usersテーブル
 
@@ -89,9 +91,9 @@
 # Association
 
 - belongs_to :user
-- belongs_to :chat_room
+- belongs_to :room
 
-# chat_messagesテーブル
+# messagesテーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -102,4 +104,4 @@
 # Association
 
 - belongs_to :user
-- belongs_to :chat_room
+- belongs_to :room

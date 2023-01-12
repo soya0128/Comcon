@@ -1,6 +1,6 @@
 .main {
   width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 80px;
 }
 
 .page_title {
@@ -34,6 +34,7 @@
 .back_to_toppage_btn,
 .back_to_mypage_btn,
 .back_to_index_btn {
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;

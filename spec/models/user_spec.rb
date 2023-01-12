@@ -51,42 +51,42 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
       it '苗字(全角)が空では登録できない' do
-        @user.first_name = ''
+        @user.last_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字を入力してください")
       end
       it '苗字(全角)が全角以外では登録できない' do
-        @user.first_name = 'aaa'
+        @user.last_name = 'aaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字は不正な値です")
       end
       it '名前(全角)が空では登録できない' do
-        @user.last_name = ''
+        @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前を入力してください")
       end
       it '名前(全角)が全角以外では登録できない' do
-        @user.last_name = 'bbb'
+        @user.first_name = 'bbb'
         @user.valid?
         expect(@user.errors.full_messages).to include("名前は不正な値です")
       end
       it '苗字(全角カナ)が空では登録できない' do
-        @user.first_name_kana = ''
+        @user.last_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字(カナ)を入力してください")
       end
       it '苗字(全角カナ)が全角カタカナ以外では登録できない' do
-        @user.first_name_kana = 'ccc'
+        @user.last_name_kana = 'ccc'
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字(カナ)は不正な値です")
       end
       it '名前(全角カナ)が空では登録できない' do
-        @user.last_name_kana = ''
+        @user.first_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前(カナ)を入力してください")
       end
       it '名前(全角カナ)が全角カタカナ以外では登録できない' do
-        @user.last_name_kana = 'ddd'
+        @user.first_name_kana = 'ddd'
         @user.valid?
         expect(@user.errors.full_messages).to include("名前(カナ)は不正な値です")
       end
@@ -123,42 +123,42 @@ RSpec.describe User, type: :model do
         expect(another_user.errors.full_messages).to include("Eメールはすでに存在します")
       end
       it '苗字(全角)が空では更新できない' do
-        @user.first_name = ''
+        @user.last_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字を入力してください")
       end
       it '苗字(全角)が全角以外では更新できない' do
-        @user.first_name = 'aaa'
+        @user.last_name = 'aaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字は不正な値です")
       end
       it '名前(全角)が空では更新できない' do
-        @user.last_name = ''
+        @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前を入力してください")
       end
       it '名前(全角)が全角以外では更新できない' do
-        @user.last_name = 'bbb'
+        @user.first_name = 'bbb'
         @user.valid?
         expect(@user.errors.full_messages).to include("名前は不正な値です")
       end
       it '苗字(全角カナ)が空では更新できない' do
-        @user.first_name_kana = ''
+        @user.last_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字(カナ)を入力してください")
       end
       it '苗字(全角カナ)が全角カタカナ以外では更新できない' do
-        @user.first_name_kana = 'ccc'
+        @user.last_name_kana = 'ccc'
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字(カナ)は不正な値です")
       end
       it '名前(全角カナ)が空では更新できない' do
-        @user.last_name_kana = ''
+        @user.first_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前(カナ)を入力してください")
       end
       it '名前(全角カナ)が全角カタカナ以外では更新できない' do
-        @user.last_name_kana = 'ddd'
+        @user.first_name_kana = 'ddd'
         @user.valid?
         expect(@user.errors.full_messages).to include("名前(カナ)は不正な値です")
       end
