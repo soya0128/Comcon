@@ -1,10 +1,23 @@
 <%= render "shared/header" %>
 
 <div class="main">
+
   <div class="page_title">
-    団費支払ページ
+      <%= @user.nickname %>さんの団費支払状況
   </div>
-  <%= link_to '団費支払ページへ', "#", class:"new_payment_btn" %>
+
+  <div class="payment_status">
+    
+    <% @payments.each_with_index do | payment, i | %>
+      <div class="payment_status_record">
+        <%= payment.price %>円
+        <%= l payment.created_at %>
+        <% break if i == 3 %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to '団費支払ページへ', new_payment_path, class:"new_payment_btn" %>
 
 </div>
 

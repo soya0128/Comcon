@@ -1,0 +1,54 @@
+<%= render "shared/header" %>
+
+<div class="payment_main">
+
+  <div class="page_title">
+    団費支払ページ
+  </div>
+
+  <div class="payment_notice">
+    半期分の団費は、学生9,000円、社会人12,000円です。
+  </div>
+
+  
+    <div class="payment_form">
+      <div class="form_title">
+        団費支払フォーム
+      </div>
+      <%= form_with model: @payment, url: payments_path, id: 'card-form', class: 'card-form-wrap',local: true do |f| %>
+        <% if @payment.errors.any? %>
+          <div id="error_explanation">
+            <ul><% @payment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class='form_wrap'>
+          <%= f.label :price, "金額" %>
+          <%= f.text_field :price, class:"price", placeholder:"例)12000" %>
+
+          <label for="number">カード番号</label>
+          <div id="number-form" class="input-default">
+          </div>
+
+          <label for="cvc">CVC</label>
+          <div id="cvc-form" class="input-default">
+          </div>
+
+          <label for="exp-date">有効期限</label>
+          <div id="expiry-form" class="input-default">
+          </div>
+
+        </div>
+        <%= f.submit '支払', id:"button" %>
+      <% end %>
+    </div>
+    <%= link_to '戻る', payments_path, class:"back_to_index_btn" %>
+  </div>
+  
+
+</div>
+
+<%= render "shared/footer" %>
