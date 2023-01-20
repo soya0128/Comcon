@@ -10,10 +10,11 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
   validates :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/}
 
-  has_many :room_users
   has_one :member, dependent: :destroy
+  has_many :payments
   has_many :emails
   has_many :storages
+  has_many :room_users
   has_many :rooms, through: :room_users
   has_many :messages
 end
