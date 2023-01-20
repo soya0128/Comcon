@@ -30,13 +30,13 @@
           <%= f.text_field :price, class:"price", placeholder:"例)12000" %>
 
           <label for="number">カード番号</label>
-          <div id="number-form" class="input-default"></div>
+          <div id="number-form" class="payjs-outer form-wrap"></div>
 
           <label for="cvc">CVC</label>
-          <div id="cvc-form" class="input-default"></div>
+          <div id="cvc-form" class="payjs-outer form-wrap"></div>
 
           <label for="exp-date">有効期限</label>
-          <div id="expiry-form" class="input-default"></div>
+          <div id="expiry-form" class="payjs-outer form-wrap"></div>
 
         </div>
         <%= f.submit '支払', id:"button" %>
