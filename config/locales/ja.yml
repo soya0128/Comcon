@@ -29,3 +29,6 @@ ja:
         image: 画像
         room: チャットルーム
         user: ユーザー
+      payment:
+        price: 金額
+        token: クレジットカード情報
