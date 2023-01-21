@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-<div class="main">
+<div class="payment_main">
 
   <div class="page_title">
       <%= @user.nickname %>さんの団費支払状況
@@ -11,9 +11,9 @@
     <% @payments.each_with_index do | payment, i | %>
       <div class="payment_status_record">
         <%= payment.price %>円
-        <%= l payment.created_at %>
-        <% break if i == 3 %>
+        <%= l payment.created_at %>        
       </div>
+    <% break if i == 4 %>  
     <% end %>
   </div>
 
