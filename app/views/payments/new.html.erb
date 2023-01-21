@@ -11,41 +11,45 @@
   </div>
 
   
-    <div class="payment_form">
-      <div class="form_title">
-        団費支払フォーム
-      </div>
-      <%= form_with model: @payment, url: payments_path, id: 'card-form', class: 'card-form-wrap',local: true do |f| %>
-        <% if @payment.errors.any? %>
-          <div id="error_explanation">
-            <ul><% @payment.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-
-        <div class='form_wrap'>
-          <%= f.label :price, "金額" %>
-          <%= f.text_field :price, class:"price", placeholder:"例)12000" %>
-
-          <label for="number">カード番号</label>
-          <div id="number-form" class="payjs-outer form-wrap"></div>
-
-          <label for="cvc">CVC</label>
-          <div id="cvc-form" class="payjs-outer form-wrap"></div>
-
-          <label for="exp-date">有効期限</label>
-          <div id="expiry-form" class="payjs-outer form-wrap"></div>
-
-        </div>
-        <%= f.submit '支払', id:"button" %>
-      <% end %>
+  <div class="payment_form">
+    <div class="form_title">
+      団費支払フォーム
     </div>
-    <%= link_to '戻る', payments_path, class:"back_to_index_btn" %>
-  </div>
-  
+    <% if @payment.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @payment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_with model: @payment, url: payments_path, id: 'card-form' do |f| %>
+      
+      <div class='form_wrap'>
+        <%= f.label :price, "金額" %>
+        <%= f.text_field :price, class:"price", placeholder:"例)12000" %>
 
+        <div class="form_wrap_number">
+          <label for="number">カード番号</label>
+          <div id="number-form" class="input-default"></div>
+        </div>
+
+        <div class="form_wrap_cvc">
+          <label for="cvc">CVC</label>
+          <div id="cvc-form" class="input-default"></div>
+        </div>
+
+        <div class="form_wrap_expiry">
+          <label for="exp-date">有効期限</label>
+          <div id="expiry-form" class="input-default"></div>
+        </div>
+
+      </div>
+      <%= f.submit '支払', id:"button" %>
+      <%= link_to '戻る', payments_path, class:"back_to_index_btn" %>
+    <% end %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>

@@ -16,13 +16,13 @@
 
 .payment_main {
   width: 40vw;
-  height: 100vh;
-  margin: 0 auto;
+  height: 100%;
+  margin: 0 auto 40px;
 }
 
 .payment_notice {
   text-align: center;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .payment_status {
@@ -37,6 +37,7 @@
 
 .payment_form {
   margin: 40px;
+  height: 100%;
 }
 
 .form_wrap {
@@ -46,4 +47,10 @@
 .form_title {
   text-align: center;
   font-size: 20px;
+}
+
+.form_wrap_number,
+.form_wrap_cvc,
+.form_wrap_expiry {
+  margin: 5px 0;
 }
