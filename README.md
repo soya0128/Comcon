@@ -1,107 +1,98 @@
-# usersテーブル
+# アプリケーション名
+Comcon
 
-| Column          | Type   | Options                   |
-| --------------- | ------ | ------------------------- |
-| email           | string | null: false, unique: true |
-| password        | string | null: false               |
-| nickname        | string | null: false               |
-| last_name       | string | null: false               |
-| first_name      | string | null: false               |
-| last_name_kana  | string | null: false               |
-| first_name_kana | string | null: false               |
+# アプリケーション概要
+メール機能、チャット機能、クレジットカード支払機能など、複数の機能を組み合わせた、グループ内で使用できるアプリケーション。
 
-# Association
+# 実装した機能
+- ユーザーログイン・新規登録機能
+- ユーザーマイページ機能
+- ユーザー情報編集機能
+- メールの一斉送信機能
+- チャット機能
+- 画像アップロード機能
 
-- has_one  :member
-- has_many :payments
-- has_many :emails
-- has_many :storages
-- has_many :rooms, through: :room_users
-- has_many :messages
+# 実装予定の機能
+- クレジットカード支払機能
+- PDFアップロード機能
+- 画像、PDFアップロードにおけるGoogle Storageとの連携
+- メールの指定アドレス宛送信機能
+- 複数ユーザーでのチャット機能
 
-# membersテーブル
+# URL
+https://comcon.onrender.com
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| postal_code   | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| address       | string     | null: false                    |
-| building_name | string     |                                |
-| phone_number  | string     | null: false                    |
-| part_id       | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+# テスト用アカウント
+- Basic認証パスワード：2222
+- Basic認証ID：admin
+- メールアドレス：sample1@com
+- パスワード：sss111
 
-# Association
+# 利用方法
+## ユーザー新規登録
+1. アプリトップページのヘッダー右側の「新規登録」ボタンをクリックする。  
+2. フォームにユーザー情報を入力して、「新規登録」ボタンをクリックする。
 
-- belongs_to :user
+## ユーザーログイン機能
+1. アプリトップページのヘッダー右側の「ログイン」ボタンをクリックする。  
+2. メールアドレスとパスワードを入力して、「ログイン」ボタンをクリックする。
 
-# paymentsテーブル
+## メール機能
+1. アプリトップページの「メール」ボタンをクリックする。  
+2. 「メール作成」ボタンをクリックするとメール新規作成画面へ遷移する。  
+3. メール新規作成画面にて、件名と本文を入力し「送信」ボタンをクリックすると、データベースに登録されている全てのメールアドレス宛にメールが送信される。送信後はメール一覧画面へリダイレクトする。  
+4. メール一覧画面にはこれまで送信されたメールの件名、送信者、送信日時が表示される。件名をクリックすると画面が遷移し、送信日時、送信者、本文が表示される。
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| price  | integer    | null: false                    |
-| user   | references | null: false, foreign_key: true |
+## チャット機能
+1. アプリトップページの「チャット」ボタンをクリックする。  
+2. 画面左側の「チャットルームを作成する」ボタンをクリックすると、チャットルーム作成ページへ遷移する。  
+3. チャットルーム名とチャットメンバーを１人選択し、「作成する」ボタンをクリックするとチャットルームが作成され、リダイレクトされる。  
+4. 画面左側の作成したチャットルーム名をクリックすると、画面右側にチャット画面が表示される。  
+5. 画面下の投稿フォームにメッセージを入力または画像を選択して「送信」ボタンをクリックすると、画面上にメッセージが表示される。  
+6. 画面右上の「チャットを終了する」ボタンをクリックすると、チャットルームとメッセージが削除される。
 
-# Association
+## ストレージ機能
+1. アプリトップページの「ストレージ」ボタンをクリックする。  
+2. 「ファイルアップロード」ボタンをクリックすると、ファイルアップロードページへ遷移する。  
+3. ファイル名とアップロードしたいファイルを選択し、「アップロード」ボタンをクリックするとファイルがアップロードされる。アップロード後、データファイル一覧ページへリダイレクトする。  
+4. データファイル一覧ページには、ファイル名、アップロードしたファイル（プレビュー表示）、投稿者、投稿日時が表示される。  
+5. データファイルの下にある「削除」ボタンをクリックするとファイルが削除される。
 
-- belongs_to :user
+## 団費支払機能(実装中)
+1.アプリトップページの「団費支払」ボタンをクリックする。  
+2. 「団費支払ページへ」ボタンをクリックすると、支払ページへ遷移する。  
+3. 支払金額、クレジットカード番号、有効期限、セキュリティコードを入力し「支払」ボタンをクリックすると、PAY.JP経由で支払が行われる。支払後、団費支払状況ページへリダイレクトされる。  
+4. ユーザーの過去５回分の支払状況が表示される。
 
-# emailsテーブル
+# アプリケーションを作成した背景
+- 所属している合唱団（約70名のメンバーが所属）にて、日々の練習連絡や、データ共有をするのにそれぞれ別のサービスを使用している。
+- さらに、メンバーから団費を集金する際、係が集めた現金を紙管理している状況である。
+- この状況を不便に感じ、連絡や集金がよりスムーズになるよう、団に必要な機能を一つにまとめたアプリを開発することにした。
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| subject | string     | null: false                    |
-| content | text       | null: false                    |
-| user    | references | null: false, foreign_key: true |
+# 工夫したポイント
+- ユーザーにとっての覚えやすさ、読みやすさを考慮してアプリの名称を決定した（**com**bination(組合せ)+**con**nect(連絡)の冒頭３文字ずつをとってネーミング）。
+- 合唱団には10代〜70代まで幅広い年代のメンバーが所属しているため、誰でも使いやすいようにシンプルで温かみのあるデザインにした。
 
-# Association
+# 洗い出した要件
+[要件定義シート](https://docs.google.com/spreadsheets/d/1AzhqYUEPemf1g4HurtkQHTClOXT4oYYirbs-OMnRdME/edit#gid=982722306)
 
-- belongs_to :user
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/9765780ca10fcfbd99fd169ff169e655.png)](https://gyazo.com/9765780ca10fcfbd99fd169ff169e655)
 
-# storagesテーブル
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/4fe72c860b8dcad701e5ad44e8dc2a84.png)](https://gyazo.com/4fe72c860b8dcad701e5ad44e8dc2a84)
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| name   | string     | null: false                    |
-| user   | references | null: false, foreign_key: true |
+# 開発環境
+- HTML/CSS
+- Ruby 2.6.5
+- Rails 6.1.6.1
+- MySQL 14.14
+- Visual Studio Code
+- GitHub
 
-# Association
-
-- belongs_to :user
-
-# roomsテーブル
-
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| room_name | string | null: false | 
-
-# Association
-
-- has_many :room_users
-- has_many :users, through: :room_users
-- has_many :messages
-
-# room_usersテーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| room   | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
-
-# Association
-
-- belongs_to :user
-- belongs_to :room
-
-# messagesテーブル
-
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| message_content | text       | null: false                    |
-| user            | references | null: false, foreign_key: true |
-| room            | references | null: false, foreign_key: true |
-
-# Association
-
-- belongs_to :user
-- belongs_to :room
+# ローカルでの動作方法
+以下のコマンドを順に実行。  
+% git clone https://github.com/soya0128/Comcon  
+% cd Comcon  
+% bundle install  
+% yarn install
