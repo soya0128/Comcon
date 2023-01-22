@@ -20,6 +20,9 @@ const pay = () => {
         const tokenObj = `<input value=${token} name='token' type="hidden"> `;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
+      numberElement.clear();
+      cvcElement.clear();
+      expiryElement.clear();
       document.getElementById("card-form").submit();
     });
   });
